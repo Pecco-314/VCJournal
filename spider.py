@@ -1,5 +1,6 @@
 import requests
 import json
+import biliBV
 import regex as re
 import wikitextparser as wtp
 from time import mktime
@@ -21,6 +22,8 @@ def parse_template(tpl: wtp.Template) -> Dict:
         value = arg.value.strip().replace("&lt;", "<")
         if value[:2] == "{{":
             value = parse_template(wtp.parse(value).templates[0])
+        elif re.match(r"BV[\dA-Z]+", value):
+            value = biliBV.decode(value)
         try:
             value = parse_date(value, "%Y-%m-%d %H:%M")
         except Exception:
