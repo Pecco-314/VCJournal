@@ -79,7 +79,7 @@ def get(l: int, r: int):
                        brick and i.get("color") == "#663300"]
             ED = [i for i in parsed_templates if i["template"] ==
                   brick and i.get("color") == "#4FC1E9"]
-            print(json.dumps({**head, "OP": OP and OP[0] or None, "main": main,
+            print(json.dumps({**head, "OP": OP and OP[0] or None, "SH": SH, "main": main,
                               "pickup": pickup, "history": history, "ED": ED and ED[0] or None},
                              ensure_ascii=False), end=",", file=f)
             print(f"{i}期已完成！")
