@@ -86,4 +86,4 @@ def get(l: int, r: int):
 
 
 if __name__ == '__main__':
-    get(1, 407)
+    get(409, 413)
